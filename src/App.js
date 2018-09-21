@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WeatherLocation from './Components/WeatherLocation';
+import WeatherLocation from './components/WeatherLocation';
 import './App.css';
 
 
