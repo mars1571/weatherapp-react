@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 
 const Location = (props) => { //esta es una manera de transferir props, otro ejemplo en WeatherExtraInfo
@@ -6,7 +7,7 @@ const Location = (props) => { //esta es una manera de transferir props, otro eje
     const { city } = props; //Destructuring ES6
 
     return (
-        <div>
+        <div className="locationCont">
             <h1>
                 {city}
             </h1>
