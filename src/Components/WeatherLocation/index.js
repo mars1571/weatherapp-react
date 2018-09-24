@@ -20,7 +20,7 @@ const data2 = {
 
 class WeatherLocation extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
             city: 'Barranquilla',
@@ -34,13 +34,16 @@ class WeatherLocation extends Component {
         });
     };
 
-    render = () => (
-        <div className="weatherLocationCont">
-            <Location city={this.state.city} />
-            <WeatherData data={this.state.data} />
-            <button onClick={this.handleUpdateClick}>Actualizar</button>
-        </div>
-    );
+    render = () => {
+        const { city, data } = this.state;
+        return (
+            <div className="weatherLocationCont">
+                <Location city={city} />
+                <WeatherData data={data} />
+                <button onClick={this.handleUpdateClick}>Actualizar</button>
+            </div>
+        );
+    };
 }
 
 export default WeatherLocation;
