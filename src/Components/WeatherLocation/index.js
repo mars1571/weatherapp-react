@@ -35,10 +35,23 @@ class WeatherLocation extends Component {
         });
     };
     
-    componentWillMount() {
+    componentWillMount() {//se ejecuta luego del constructor, una unica vez
         console.log("componentWillMount");
     }
     
+    componentDidMount() {//se ejecuta luego del render, una unica vez
+        console.log("componentDidMount");
+    }
+
+    componentWillUpdate() {//se ejecuta antes del render, cada vez que actualice
+        console.log("componentWillUpdate");
+    }
+
+    componentDidUpdate() {//se ejecuta luego del render, cada vez que actualice
+        console.log("componentDidUpdate");
+    }
+    
+
     render = () => {
         const { city, data } = this.state;
         return (

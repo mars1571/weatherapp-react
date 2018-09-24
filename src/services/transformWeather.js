@@ -2,7 +2,7 @@ import convert from 'convert-units';
 import { CLOUD, CLOUDY, SUN, RAIN, SNOW, WINDY } from './../constants/weathers';
 
 const getTemp = temp =>{
-    return convert(temp).from('K').to('C').toFixed(2);
+    return Number(convert(temp).from('K').to('C').toFixed(2));
 }
 
 const getWeatherState = weather =>{return SUN};
