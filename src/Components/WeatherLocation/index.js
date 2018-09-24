@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import convert from 'convert-units';
 import Location from './Location';
 import WeatherData from './WeatherData'
 import { CLOUD, CLOUDY, SUN, RAIN, SNOW, WINDY } from './../../constants/weathers';
@@ -25,16 +26,21 @@ class WeatherLocation extends Component {
         };
     }
 
+    getTemp = temp =>{
+        return convert(temp).from('K').to('C').toFixed(2);
+    }
+
     getWeatherState = weather =>{return SUN};
 
     getData = (weather_data) =>{
         const {humidity, temp} = weather_data.main;
         const {speed} = weather_data.wind;
         const weatherState = this.getWeatherState(this.weather)
+        const temperature = this.getTemp(temp);
 
         const data = {
             humidity,
-            temperature: temp,
+            temperature,
             weatherState,
             wind: `${speed} m/s`
         };
@@ -43,13 +49,10 @@ class WeatherLocation extends Component {
 
     handleUpdateClick = () => {
         fetch(api_weather).then(data => {
-            console.log(data);
             return data.json();
         }).then(weather_data =>{
             const data = this.getData(weather_data);
             this.setState({ data });
-            console.log(weather_data);
-            debugger;
         });
     };
 
