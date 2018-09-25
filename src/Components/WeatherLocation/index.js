@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import CircularProgress from 'material-ui/CircularProgress';
 import Location from './Location';
 import WeatherData from './WeatherData'
-import transformWeather from './../../services/transformWeather'
+import transformWeather from './../../services/transformWeather';
 import './styles.css';
-
 const location = "Barranquilla,col";
 const api_key =  "806b60b3c80578a8022352e131b022a3";
 const api_weather = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${api_key}`;
@@ -36,7 +36,7 @@ class WeatherLocation extends Component {
         return (
             <div className="weatherLocationCont">
                 <Location city={city} />
-                {data ?<WeatherData data={data} /> : 'cargando...'}
+                {data ?<WeatherData data={data} /> :<CircularProgress size={60} thickness={7} />}
             </div>
         );
     };
