@@ -1,0 +1,11 @@
+
+
+.locationList{
+    /*background: red;*/
+}
+
+@media (max-width: 48em){
+    .locationList{
+    background: green;
+    }
+}
